@@ -17,6 +17,6 @@ export default defineConfig({
       components: './src/components',
     },
   },
-  base: '/profile',
+  base: '/',
   publicDir: 'public',
 });
