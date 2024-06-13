@@ -1,0 +1,30 @@
+{
+  "information_aboutme": "I am a junior front-end developer at the moment I know HTML, CSS, JavaScript, React.js and Node.js which are the basis of anyweb development. I quickly learn new technologies and am ready to work in a team to achieve the overall goals of the project. I considermyself a responsible, communicative and creative person.",
+  "what_do": [
+    {
+      "image": "https://cdn-icons-png.freepik.com/512/5881/5881336.png",
+      "name": "Responsive and Adaptive design",
+      "description": "Leveraging CSS frameworks and techniques, I ensure your site looks great and functions flawlessly on any screen size, from mobile to desktop.",
+      "id": "1"
+    },
+    {
+      "image": "https://www.pngkit.com/png/full/443-4434759_frontend-development-front-end-development-png.png",
+      "name": "Creative and Beautiful Designs",
+      "description": "Using HTML5, CSS3, and JavaScript, I transform ideas into visually appealing interfaces that captivate users.",
+      "id": "2"
+    },
+    {
+      "image": "https://cdn-icons-png.freepik.com/512/2828/2828901.png",
+      "name": "Interactive User Interfaces",
+      "description": "I build dynamic and interactive components that enhance user engagement and provide intuitive navigation.",
+      "id": "3"
+    },
+    {
+      "image": "https://miro.medium.com/v2/resize:fit:1400/1*IhGijgoVTEs0_4rPuUXboQ.jpeg",
+      "name": "Cutting-Edge Technologies",
+      "description": "With proficiency in frameworks like React.js or Next.js, I develop scalable and maintainable code, ensuring high performance and smooth user interactions.",
+      "id": "4"
+    }
+  ],
+  "id": "1"
+}
