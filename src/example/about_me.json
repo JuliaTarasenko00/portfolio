@@ -1,5 +1,5 @@
 {
-  "information_aboutme": "I am a junior front-end developer at the moment I know HTML, CSS, JavaScript, React.js and Node.js which are the basis of anyweb development. I quickly learn new technologies and am ready to work in a team to achieve the overall goals of the project. I considermyself a responsible, communicative and creative person.",
+  "information_aboutme": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, voluptatum excepturi nesciunt quos tempore ut tempora cum sequi dicta facilis modi qui harum ipsam ducimus pariatur enim alias a eligendi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis placeat cupiditate sed adipisci facere sint, aut cum quos voluptate earum laborum cumque magnam! Aperiam debitis possimus quo laudantium sit voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iusto quis quos architecto temporibus commodi aliquam optio ex pariatur cum, minus aut sequi excepturi eos odit quasi illum veniam! Quae?",
   "what_do": [
     {
       "image": "https://cdn-icons-png.freepik.com/512/5881/5881336.png",
@@ -8,7 +8,7 @@
       "id": "1"
     },
     {
-      "image": "https://www.pngkit.com/png/full/443-4434759_frontend-development-front-end-development-png.png",
+      "image": "https://cdn-icons-png.flaticon.com/512/2620/2620735.png",
       "name": "Creative and Beautiful Designs",
       "description": "Using HTML5, CSS3, and JavaScript, I transform ideas into visually appealing interfaces that captivate users.",
       "id": "2"
