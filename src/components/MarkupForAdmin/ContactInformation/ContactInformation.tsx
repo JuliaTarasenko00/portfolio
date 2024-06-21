@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { TextInput } from '../../ui/input/TextInput';
 import { PhoneInput } from '../../ui/input/PhoneInput';
 
-export const validationSchema = Yup.object().shape({
+const validationSchema = Yup.object().shape({
   name: Yup.string().required('File is required'),
   avatar: Yup.string().required('File is required'),
   position: Yup.string().required('File is required'),
