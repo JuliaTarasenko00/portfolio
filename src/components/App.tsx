@@ -7,6 +7,7 @@ const Resume = lazy(() => import('../pages/Resume/Resume'));
 const Projects = lazy(() => import('../pages/Projects/Projects'));
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 const AboutMe = lazy(() => import('../pages/AboutMe/AboutMe'));
+const AdminPage = lazy(() => import('../pages/Admin/MainPage'));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path={routers.resume} element={<Resume />} />
             <Route path={routers.projects} element={<Projects />} />
           </Route>
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

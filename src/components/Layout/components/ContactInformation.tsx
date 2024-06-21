@@ -70,12 +70,13 @@ export const ContactInformation = () => {
             <p className={contact}>{data.location}</p>
           </li>
         </ul>
-        <button
-          type="button"
+        <a
+          href="https://drive.google.com/file/d/1mwJ5lhtzAftPTzGyfVS3vL7cTnlRLIZk/view?usp=drive_link"
+          download
           className="mx-auto mt-[15px] flex max-w-[200px] items-center gap-[5px] rounded-[20px] bg-[#eaa70c] p-[15px] text-[16px] font-bold uppercase leading-8 text-[#fff] outline-none transition-colors duration-350 ease-in-out hover:bg-[#f9b058] focus:bg-[#f9b058]"
         >
           <FaFilePdf className="h-[20px] w-[20px]" /> Download CV
-        </button>
+        </a>
       </div>
     </div>
   );
