@@ -14,20 +14,13 @@ function App() {
     <>
       <Suspense fallback={<p>Loading ...</p>}>
         <Routes>
-          <Route
-            path={routers.home}
-            element={
-              <>
-                <Layout />
-              </>
-            }
-          >
+          <Route path={routers.home} element={<Layout />}>
             <Route index element={<AboutMe />} />
             <Route path={routers.resume} element={<Resume />} />
             <Route path={routers.projects} element={<Projects />} />
-            <Route path="*" element={<NotFound />} />
           </Route>
           <Route path={routers.admin} element={<AdminPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </>

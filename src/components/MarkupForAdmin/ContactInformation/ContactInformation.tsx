@@ -4,6 +4,8 @@ import { Controller, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { TextInput } from '../../ui/input/TextInput';
 import { PhoneInput } from '../../ui/input/PhoneInput';
+import { ImageInput } from '../../ui/input/ImageInput';
+import { useState } from 'react';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('File is required'),
@@ -50,6 +52,8 @@ const initialValue: ValuesInput = {
 };
 
 export const ContactInformation = () => {
+  const [selectImgUk, setSelectImgUk] = useState<File | null>(null);
+  const [selectImgEn, setSelectImgEn] = useState<File | null>(null);
   const {
     handleSubmit,
     control,
@@ -61,7 +65,7 @@ export const ContactInformation = () => {
   });
 
   const handelSubmit = handleSubmit((value) => {
-    console.log(value);
+    console.log({ ...value, avatar_uk: selectImgUk, avatar: selectImgEn });
   });
 
   return (
@@ -83,9 +87,10 @@ export const ContactInformation = () => {
             name="avatar_uk"
             control={control}
             render={({ field }) => (
-              <TextInput
+              <ImageInput
                 placeholder="Фото"
                 {...field}
+                setSelectImg={setSelectImgUk}
                 errorMessage={errors.avatar_uk?.message}
               />
             )}
@@ -184,10 +189,11 @@ export const ContactInformation = () => {
             name="avatar"
             control={control}
             render={({ field }) => (
-              <TextInput
+              <ImageInput
                 placeholder="Image"
                 {...field}
-                errorMessage={errors.avatar?.message}
+                setSelectImg={setSelectImgEn}
+                errorMessage={errors.avatar_uk?.message}
               />
             )}
           />
