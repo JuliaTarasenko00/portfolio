@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {},
-
+      backgroundImage: {
+        contact: 'url("./assets/image/image_not_found.png")',
+      },
       transitionDuration: {
         350: '350ms',
       },

@@ -17,6 +17,11 @@ export default defineConfig({
       components: './src/components',
     },
   },
+  define: {
+    'process.env': {
+      NEXT_API_BACK_END: JSON.stringify(process.env.NEXT_API_BACK_END),
+    },
+  },
   base: '/portfolio',
   publicDir: 'public',
 });

@@ -7,5 +7,5 @@ export interface IContactInformation {
   location: string;
   git: string;
   linkedin: string;
-  id: string;
+  cv: string;
 }
