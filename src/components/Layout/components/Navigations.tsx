@@ -94,7 +94,6 @@ export const Navigation: FC<INavigation> = ({
         >
           {language.map((name, index) => (
             <motion.li
-              className="text-[#fff]"
               variants={itemVariants}
               onClick={() => {
                 setCurrentLanguage(name);
@@ -102,7 +101,12 @@ export const Navigation: FC<INavigation> = ({
               }}
               key={index}
             >
-              {name}
+              <p
+                className={`${currentLanguage === name ? 'cursor-no-drop text-[grey]' : 'cursor-pointer text-[#fff]'}`}
+              >
+                {' '}
+                {name}
+              </p>
             </motion.li>
           ))}
         </motion.ul>

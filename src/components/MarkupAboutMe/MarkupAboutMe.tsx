@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { IAboutMe, TAboutMe } from '../../types/typeAboutMe';
+import { useTranslation } from 'react-i18next';
+import { token } from '../../i18n/token';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -22,17 +24,18 @@ const item = {
 };
 
 export const MarkupAboutMe = ({ data }: { data: IAboutMe }) => {
+  const { t } = useTranslation();
   return (
     <>
       <h2 className="text-[28px] font-bold italic text-main_color after:relative after:bottom-[10px] after:left-[10px] after:inline-block after:h-[2px] after:w-[130px] after:translate-y-[3px] after:bg-[#eaa70c] after:content-['']">
-        About
+        {t(token.title.about)}
       </h2>
       <p className="mt-[5px] w-[650px] text-[13px] leading-[1.3] tracking-wider text-gray-500">
         {data.information_aboutme}
       </p>
       <div>
         <h3 className="my-[10px] text-[25px] font-semibold italic text-main_color">
-          What I Do?
+          {t(token.title.whatDo)}
         </h3>
         <motion.ul
           initial="hidden"

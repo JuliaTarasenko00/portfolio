@@ -17,7 +17,7 @@ export const ContactInformation = () => {
 
   const { data, isPending } = useQuery<IContactInformation>({
     queryKey: ['contactInformation', language],
-    queryFn: () => getContactInformation({ language }),
+    queryFn: () => getContactInformation(language),
   });
 
   return (

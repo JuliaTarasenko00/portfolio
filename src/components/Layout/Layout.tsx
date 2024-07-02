@@ -7,6 +7,8 @@ import { ContactInformation } from './components/ContactInformation';
 import { HiAcademicCap } from 'react-icons/hi2';
 import { FaAddressCard } from 'react-icons/fa';
 import { PiProjectorScreenChartFill } from 'react-icons/pi';
+import { useTranslation } from 'react-i18next';
+import { token } from '../../i18n/token';
 
 export interface IOptions {
   name: string;
@@ -14,25 +16,25 @@ export interface IOptions {
   image: React.ReactNode;
 }
 
-const option: IOptions[] = [
-  {
-    name: 'About',
-    patch: routers.home,
-    image: <FaAddressCard />,
-  },
-  {
-    name: 'Resume',
-    patch: routers.resume,
-    image: <HiAcademicCap />,
-  },
-  {
-    name: 'Project',
-    patch: routers.projects,
-    image: <PiProjectorScreenChartFill />,
-  },
-];
-
 const Layout = () => {
+  const { t } = useTranslation();
+  const option: IOptions[] = [
+    {
+      name: `${t(token.nav.btnAbout)}`,
+      patch: routers.home,
+      image: <FaAddressCard />,
+    },
+    {
+      name: `${t(token.nav.btnResume)}`,
+      patch: routers.resume,
+      image: <HiAcademicCap />,
+    },
+    {
+      name: `${t(token.nav.btnProject)}`,
+      patch: routers.projects,
+      image: <PiProjectorScreenChartFill />,
+    },
+  ];
   const [selectedTab, setSelectedTab] = useState<string>(option[0].name);
 
   return (
