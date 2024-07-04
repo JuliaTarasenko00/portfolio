@@ -1,62 +1,30 @@
+import { useQuery } from '@tanstack/react-query';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
-
-import * as Yup from 'yup';
 import { TextInput } from '../../ui/input/TextInput';
 import { PhoneInput } from '../../ui/input/PhoneInput';
 import { ImageInput } from '../../ui/input/ImageInput';
-import { useState } from 'react';
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required('File is required'),
-  avatar: Yup.string().required('File is required'),
-  position: Yup.string().required('File is required'),
-  phoneNumber: Yup.string().required('File is required'),
-  email: Yup.string().required('File is required'),
-  location: Yup.string().required('File is required'),
-  git: Yup.string().required('File is required'),
-  linkedin: Yup.string().required('File is required'),
-  cv: Yup.string().required('File is required'),
-  name_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  avatar_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  position_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  phoneNumber_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  email_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  location_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  git_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  linkedin_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-  cv_uk: Yup.string().required("Поле обов'язкове до заповнення"),
-});
-
-type ValuesInput = Yup.InferType<typeof validationSchema>;
-
-const initialValue: ValuesInput = {
-  name: '',
-  avatar: '',
-  position: '',
-  phoneNumber: '',
-  email: '',
-  location: '',
-  git: '',
-  linkedin: '',
-  cv: '',
-  name_uk: '',
-  avatar_uk: '',
-  position_uk: '',
-  phoneNumber_uk: '',
-  email_uk: '',
-  location_uk: '',
-  git_uk: '',
-  linkedin_uk: '',
-  cv_uk: '',
-};
+import { useEffect, useState } from 'react';
+import {
+  addContactInformation,
+  getAllContactInformation,
+} from '../../../api/contact_information';
+import { ValuesInput, validationSchema } from './validationSchema';
+import { initialValue } from './initialValue';
 
 export const ContactInformation = () => {
   const [selectImgUk, setSelectImgUk] = useState<File | null>(null);
   const [selectImgEn, setSelectImgEn] = useState<File | null>(null);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ['all_contact_information'],
+    queryFn: getAllContactInformation,
+  });
+
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm<ValuesInput>({
     defaultValues: initialValue,
@@ -64,12 +32,62 @@ export const ContactInformation = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const handelSubmit = handleSubmit((value) => {
-    console.log({ ...value, avatar_uk: selectImgUk, avatar: selectImgEn });
-  });
+  useEffect(() => {
+    if (data && !isLoading) {
+      reset({
+        name: data.en.name,
+        position: data.en.position,
+        phoneNumber: data.en.phoneNumber,
+        email: data.en.email,
+        location: data.en.location,
+        git: data.en.git,
+        linkedin: data.en.linkedin,
+        cv: data.en.cv,
+
+        name_uk: data.uk.name,
+        position_uk: data.uk.position,
+        phoneNumber_uk: data.uk.phoneNumber,
+        email_uk: data.uk.email,
+        location_uk: data.uk.location,
+        git_uk: data.uk.git,
+        linkedin_uk: data.uk.linkedin,
+        cv_uk: data.uk.cv,
+      });
+    }
+  }, [data, isLoading, reset]);
+
+  const handelSubmit = async (value: ValuesInput) => {
+    try {
+      const body = new FormData();
+
+      body.append('uk[name]', value.name_uk);
+      body.append('uk[avatar]', selectImgUk ? selectImgUk : value.avatar_uk);
+      body.append('uk[position]', value.position_uk);
+      body.append('uk[phoneNumber]', value.phoneNumber_uk);
+      body.append('uk[email]', value.email_uk);
+      body.append('uk[location]', value.location_uk);
+      body.append('uk[git]', value.git_uk);
+      body.append('uk[linkedin]', value.linkedin_uk);
+      body.append('uk[cv]', value.cv_uk);
+
+      body.append('en[name]', value.name);
+      body.append('en[avatar]', selectImgEn ? selectImgEn : value.avatar);
+      body.append('en[position]', value.position);
+      body.append('en[phoneNumber]', value.phoneNumber);
+      body.append('en[email]', value.email);
+      body.append('en[location]', value.location);
+      body.append('en[git]', value.git);
+      body.append('en[linkedin]', value.linkedin);
+      body.append('en[cv]', value.cv);
+
+      await addContactInformation(body);
+    } catch (error) {
+      console.log('error: ', error);
+    }
+  };
 
   return (
-    <form className="w-full" onSubmit={handelSubmit}>
+    <form className="w-full" onSubmit={handleSubmit(handelSubmit)}>
       <div className="flex w-[100%] justify-between gap-[10px]">
         <div className="flex w-full flex-col gap-[8px]">
           <Controller
@@ -160,7 +178,7 @@ export const ContactInformation = () => {
                 errorMessage={errors.linkedin_uk?.message}
               />
             )}
-          />{' '}
+          />
           <Controller
             name="cv_uk"
             control={control}
@@ -278,7 +296,8 @@ export const ContactInformation = () => {
       </div>
       <button
         type="submit"
-        className="ml-auto mt-[20px] block rounded-[10px] bg-[#8855ff] px-[20px] py-[10px] text-[#fff]"
+        disabled
+        className="ml-auto mt-[20px] block rounded-[10px] bg-[#8855ff] px-[20px] py-[10px] text-[#fff] disabled:cursor-no-drop disabled:bg-[grey]"
       >
         Submit
       </button>

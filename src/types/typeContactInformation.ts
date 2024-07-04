@@ -1,3 +1,9 @@
+export interface IContactInformationAll {
+  uk: IContactInformation;
+  en: IContactInformation;
+  _id: string;
+}
+
 export interface IContactInformation {
   name: string;
   avatar: string;
