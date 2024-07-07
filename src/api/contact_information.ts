@@ -19,9 +19,22 @@ export const getAllContactInformation = async () => {
 };
 
 export const addContactInformation = async <T>(body: T) => {
-  const { data } = await $instants.post(
+  const { data } = await $instants.post<IContactInformationAll>(
     '/contact_information/add_information',
     body,
   );
   return data;
+};
+
+export const updateContactInformation = async <T>(body: T, id: string) => {
+  const { data } = await $instants.patch<IContactInformationAll>(
+    `/contact_information/edit/${id}`,
+    body,
+  );
+
+  return data;
+};
+
+export const clearContactInformation = async (id: string) => {
+  await $instants.delete(`/contact_information/remove/${id}`);
 };

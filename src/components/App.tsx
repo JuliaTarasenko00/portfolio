@@ -2,6 +2,8 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routers } from '../helpers/routes';
 import Loader from './ui/Loader/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = lazy(() => import('./Layout/Layout'));
 const Resume = lazy(() => import('../pages/Resume/Resume'));
@@ -24,6 +26,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      <ToastContainer />
     </>
   );
 }
