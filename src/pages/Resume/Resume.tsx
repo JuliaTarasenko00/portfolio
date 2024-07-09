@@ -9,6 +9,7 @@ const skillsList: IWorkSkills[] = skills;
 
 export default function Resume() {
   const { educationList, isPendingEducation } = useResumeRequest();
+
   return (
     <section className="w-[100%]">
       <MarkupResume

@@ -8,7 +8,7 @@ export interface IEducationInformation {
 }
 
 export const getEducation = async (language: string) => {
-  const { data } = await $instants.get<IEducation>(
+  const { data } = await $instants.get<IEducation[]>(
     `/education?language=${language}`,
   );
   return data;
