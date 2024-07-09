@@ -68,10 +68,9 @@ export const MarkupResume: FC<IMarkupResume> = ({
                 degree,
                 programme_subject,
                 name_organization,
-                id,
               }: IEducation) => (
                 <motion.li
-                  key={id}
+                  key={name_organization}
                   variants={item}
                   className={`${styleItem} bg-[#80808029] even:bg-[#eaa70c1c]`}
                 >
@@ -86,8 +85,7 @@ export const MarkupResume: FC<IMarkupResume> = ({
                     {isPendingEducation ? (
                       <LoadingComponent style="h-[30px] w-[30px]" />
                     ) : (
-                      `${degree}
-                    ${programme_subject && ','} ${programme_subject}`
+                      `${degree}${programme_subject ? `, ${programme_subject}` : ''} `
                     )}
                   </h3>
                   <p className={styleName}>

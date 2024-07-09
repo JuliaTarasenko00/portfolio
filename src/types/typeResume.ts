@@ -2,9 +2,8 @@ export interface IEducation {
   start_education: string;
   end_education: string;
   degree: string;
-  programme_subject: string | null;
+  programme_subject: string | undefined;
   name_organization: string;
-  id: string;
 }
 
 export interface IExperience {

@@ -46,10 +46,7 @@ export default function MainPage() {
             <h2 className="text-[20px] italic text-main_color">UK</h2>
             <h2 className="text-[20px] italic text-main_color">EN</h2>
           </div>
-          <div className="flex justify-between">
-            {' '}
-            {selectedTab && selectedTab.content}
-          </div>
+          <div className=""> {selectedTab && selectedTab.content}</div>
         </motion.section>
       </AnimatePresence>
     </main>
