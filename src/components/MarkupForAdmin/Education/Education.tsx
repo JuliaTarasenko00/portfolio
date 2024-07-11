@@ -25,7 +25,6 @@ export const Education = () => {
   } = useQuery<IEducationInformation[]>({
     queryKey: ['all_education_list'],
     queryFn: getAllEducationList,
-    refetchInterval: 60000,
   });
 
   return (

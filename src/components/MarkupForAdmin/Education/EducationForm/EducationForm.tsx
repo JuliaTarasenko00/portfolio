@@ -102,7 +102,7 @@ export const EducationForm: FC<IEducationForm> = ({
 
   return (
     <form className="w-full" onSubmit={handleSubmit(submitForm)}>
-      <div className="flex w-full justify-between gap-[10px]">
+      <div className="flex w-full justify-between gap-[10px] sm:flex">
         <div className="flex w-full flex-col gap-[8px]">
           <div className="flex items-center gap-[5px]">
             <Controller
@@ -171,7 +171,7 @@ export const EducationForm: FC<IEducationForm> = ({
                 <TextInput
                   {...field}
                   placeholder="Start education"
-                  errorMessage={errors.start_education_uk?.message}
+                  errorMessage={errors.start_education_en?.message}
                 />
               )}
             />
@@ -182,7 +182,7 @@ export const EducationForm: FC<IEducationForm> = ({
                 <TextInput
                   {...field}
                   placeholder="End education"
-                  errorMessage={errors.end_education_uk?.message}
+                  errorMessage={errors.end_education_en?.message}
                 />
               )}
             />

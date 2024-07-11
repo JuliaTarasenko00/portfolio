@@ -6,16 +6,16 @@ export default function MainPage() {
   const [selectedTab, setSelectTab] = useState(options[0]);
 
   return (
-    <main className="min-h-[500px] w-[800px] rounded-[20px] bg-[#fff] p-[20px]">
-      <ul className="flex justify-between border-b-[1.8px] border-b-[#8080807b]">
+    <main className="min-h-[500px] w-[800px] max-w-[100%] rounded-[20px] bg-[#fff] p-[20px]">
+      <ul className="flex flex-wrap justify-center border-b-[1.8px] border-b-[#8080807b] sm:justify-between">
         {options.map((el) => (
           <li
-            className={`relative cursor-pointer px-[30px] py-[10px] ${el === selectedTab && 'bg-[#8080807b]'} rounded-t-[10px]`}
+            className={`relative cursor-pointer px-[15px] py-[10px] sm:px-[30px] ${el === selectedTab && 'bg-[#8080807b]'} rounded-t-[10px]`}
             onClick={() => setSelectTab(el)}
             key={el.nameTab}
           >
             <p
-              className={`flex items-center gap-[3px] ${el.nameTab === selectedTab.nameTab ? 'text-[#fff]' : 'text-main_color'} `}
+              className={`flex items-center gap-[3px] text-[13px] sm:text-[18px] ${el.nameTab === selectedTab.nameTab ? 'text-[#fff]' : 'text-main_color'} `}
             >
               <span
                 className={`block h-[25px] w-[25px] ${el.nameTab === selectedTab.nameTab ? 'text-[#8855ff]' : 'text-main_color'}`}
@@ -43,10 +43,14 @@ export default function MainPage() {
           transition={{ duration: 0.2 }}
         >
           <div className="mb-[10px] grid grid-cols-2">
-            <h2 className="text-[20px] italic text-main_color">UK</h2>
-            <h2 className="text-[20px] italic text-main_color">EN</h2>
+            <h2 className="hidden text-[20px] italic text-main_color sm:block">
+              UK
+            </h2>
+            <h2 className="hidden text-[20px] italic text-main_color sm:block">
+              EN
+            </h2>
           </div>
-          <div className=""> {selectedTab && selectedTab.content}</div>
+          <div> {selectedTab && selectedTab.content}</div>
         </motion.section>
       </AnimatePresence>
     </main>

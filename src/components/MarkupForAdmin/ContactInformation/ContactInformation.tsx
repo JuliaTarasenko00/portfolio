@@ -15,6 +15,7 @@ import { initialValue } from './initialValue';
 import { LoaderForComponent } from '../../ui/Loader/LoaderForCompenent';
 import { toast } from 'react-toastify';
 import { styleForToastity } from '../../ui/styleForToastity';
+import { EmailInput } from '../../ui/input/EmailInput';
 
 export const ContactInformation = () => {
   const [selectImgUk, setSelectImgUk] = useState<File | null>(null);
@@ -109,7 +110,7 @@ export const ContactInformation = () => {
       {isFetching && <LoaderForComponent />}
       {!isFetching && (
         <form className="w-full" onSubmit={handleSubmit(handelSubmit)}>
-          <div className="flex w-[100%] justify-between gap-[10px]">
+          <div className="w-[100%] justify-between gap-[10px] sm:flex">
             <div className="flex w-full flex-col gap-[8px]">
               <Controller
                 name="name_uk"
@@ -174,7 +175,7 @@ export const ContactInformation = () => {
                 name="email_uk"
                 control={control}
                 render={({ field }) => (
-                  <TextInput
+                  <EmailInput
                     placeholder="Email"
                     {...field}
                     errorMessage={errors.email_uk?.message}
@@ -288,7 +289,7 @@ export const ContactInformation = () => {
                 name="email"
                 control={control}
                 render={({ field }) => (
-                  <TextInput
+                  <EmailInput
                     placeholder="Email"
                     {...field}
                     errorMessage={errors.email?.message}

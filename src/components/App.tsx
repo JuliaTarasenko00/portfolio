@@ -5,6 +5,7 @@ import Loader from './ui/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const Login = lazy(() => import('../pages/Auth/Login'));
 const Layout = lazy(() => import('./Layout/Layout'));
 const Resume = lazy(() => import('../pages/Resume/Resume'));
 const Projects = lazy(() => import('../pages/Projects/Projects'));
@@ -17,6 +18,7 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
+          <Route path={routers.login} element={<Login />} />
           <Route path={routers.home} element={<Layout />}>
             <Route index element={<AboutMe />} />
             <Route path={routers.resume} element={<Resume />} />

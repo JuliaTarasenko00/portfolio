@@ -30,7 +30,7 @@ export const EducationList: FC<IEducationList> = ({
       {data?.map(({ en, _id }) => (
         <li key={_id} className="flex justify-between">
           <p
-            className="cursor-pointer rounded-[10px] bg-[#8855ff] px-[20px] py-[10px] text-[#fff]"
+            className="w-[100%] max-w-[180px] cursor-pointer rounded-[10px] bg-[#8855ff] px-[10px] py-[10px] text-center text-[#fff] sm:max-w-[200px] sm:px-[20px]"
             onClick={() => handleById(_id as string)}
           >{`${en.degree}${en.programme_subject ? `, ${en.programme_subject}` : ''}`}</p>
           <button
