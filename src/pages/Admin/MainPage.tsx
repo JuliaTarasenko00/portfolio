@@ -1,12 +1,33 @@
 import { useState } from 'react';
 import { options } from './options';
 import { motion, AnimatePresence } from 'framer-motion';
+import { signOut } from '../../api/auth';
+import { useAuth } from '../../helpers/context/authContext/useAuth';
+import { toast } from 'react-toastify';
+import { styleForToastity } from '../../components/ui/styleForToastity';
 
 export default function MainPage() {
   const [selectedTab, setSelectTab] = useState(options[0]);
+  const { setToken } = useAuth();
+
+  const logOut = async () => {
+    try {
+      await signOut();
+      setToken('');
+    } catch (error: any) {
+      toast.error(error.message, styleForToastity);
+    }
+  };
 
   return (
     <main className="min-h-[500px] w-[800px] max-w-[100%] rounded-[20px] bg-[#fff] p-[20px]">
+      <button
+        type="button"
+        onClick={logOut}
+        className="absolute right-[100px] top-[10%] w-[200px] max-w-[100%] rounded-[10px] bg-[#8855ff] p-[15px] text-[#fff]"
+      >
+        Sign out
+      </button>
       <ul className="flex flex-wrap justify-center border-b-[1.8px] border-b-[#8080807b] sm:justify-between">
         {options.map((el) => (
           <li

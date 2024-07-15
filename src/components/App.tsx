@@ -12,6 +12,9 @@ const Projects = lazy(() => import('../pages/Projects/Projects'));
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 const AboutMe = lazy(() => import('../pages/AboutMe/AboutMe'));
 const AdminPage = lazy(() => import('../pages/Admin/MainPage'));
+const PrivateRoute = lazy(
+  () => import('../components/PrivateRoute/PrivateRoute'),
+);
 
 function App() {
   return (
@@ -24,7 +27,14 @@ function App() {
             <Route path={routers.resume} element={<Resume />} />
             <Route path={routers.projects} element={<Projects />} />
           </Route>
-          <Route path={routers.admin} element={<AdminPage />} />
+          <Route
+            path={routers.admin}
+            element={
+              <PrivateRoute redirectedTo={routers.login}>
+                <AdminPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

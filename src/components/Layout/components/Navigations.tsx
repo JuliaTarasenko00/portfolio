@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { IOptions } from '../Layout';
 import { FC, useState } from 'react';
 import { GoTriangleDown } from 'react-icons/go';
-import { useLanguage } from '../../../helpers/context/useLanguage';
+import { useLanguage } from '../../../helpers/context/languageContext/useLanguage';
 
 interface INavigation {
   option: IOptions[];

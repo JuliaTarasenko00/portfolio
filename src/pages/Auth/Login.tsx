@@ -4,6 +4,14 @@ import { PasswordInput } from '../../components/ui/input/PasswordInput';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { emailRegexp } from '../../helpers/emailRegexp';
 import { EmailInput } from '../../components/ui/input/EmailInput';
+import { signIn } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
+import { routers } from '../../helpers/routes';
+import { useEffect } from 'react';
+import { useAuth } from '../../helpers/context/authContext/useAuth';
+import { toast } from 'react-toastify';
+import { styleForToastity } from '../../components/ui/styleForToastity';
+import { IAuth } from '../../types/authResult';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -20,6 +28,8 @@ const initialValue: ValuesInput = {
 };
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { token, setToken } = useAuth();
   const {
     handleSubmit,
     control,
@@ -29,10 +39,19 @@ export default function Login() {
     defaultValues: initialValue,
     resolver: yupResolver(validationSchema),
   });
-  console.log('errors: ', errors);
 
-  const submitForm = (value: ValuesInput) => {
-    console.log('value: ', value);
+  useEffect(() => {
+    token && navigate(routers.admin);
+  }, [token, navigate]);
+
+  const submitForm = async (value: ValuesInput) => {
+    try {
+      const result: IAuth = await signIn(value);
+      setToken(result.token);
+      navigate(routers.admin);
+    } catch (error: any) {
+      toast.error(error.message, styleForToastity);
+    }
   };
 
   return (

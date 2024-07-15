@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
-import { LOCAL } from '../../i18n/constants';
-import i18n from '../../i18n';
+import React, { createContext, useEffect, useState } from 'react';
+import { LOCAL } from '../../../i18n/constants';
+import i18n from '../../../i18n';
 
 export type LanguageContextType = {
   currentLanguage: string;

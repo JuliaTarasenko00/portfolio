@@ -5,7 +5,7 @@ import { IContactInformation } from '../../../types/typeContactInformation';
 import { MdEmail } from 'react-icons/md';
 import { FaGitSquare, FaLinkedin } from 'react-icons/fa';
 import { LoadingComponent } from '../../ui/LoadingComponent';
-import { useLanguage } from '../../../helpers/context/useLanguage';
+import { useLanguage } from '../../../helpers/context/languageContext/useLanguage';
 
 const contact =
   'text-main_color text-center hover:text-[#eaa70c] focus:text-[#eaa70c] transition-colors duration-350 ease-in-out text-[17px] leading-8 ';
