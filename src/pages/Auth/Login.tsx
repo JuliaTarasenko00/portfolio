@@ -12,7 +12,6 @@ import { useAuth } from '../../helpers/context/authContext/useAuth';
 import { toast } from 'react-toastify';
 import { styleForToastity } from '../../components/ui/styleForToastity';
 import { IAuth } from '../../types/authResult';
-import { LoadingComponent } from '../../components/ui/LoadingComponent';
 import { LoaderForComponent } from '../../components/ui/Loader/LoaderForCompenent';
 
 const validationSchema = Yup.object().shape({
