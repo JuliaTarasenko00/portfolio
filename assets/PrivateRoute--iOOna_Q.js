@@ -1,1 +1,0 @@
-import{j as r,x as s}from"./index-BWIJrdA2.js";import{u as a}from"./useAuth-DxaK3rzK.js";function n({children:t,redirectedTo:o="/"}){const{token:e}=a();return e?t:r.jsx(s,{to:o})}export{n as default};
