@@ -23,6 +23,7 @@ interface IMarkupResume {
   experienceList: IExperience[];
   skillsList: IWorkSkills[];
   isPendingEducation: boolean;
+  isPendingExperience: boolean;
 }
 
 export const MarkupResume: FC<IMarkupResume> = ({
@@ -30,6 +31,7 @@ export const MarkupResume: FC<IMarkupResume> = ({
   experienceList,
   skillsList,
   isPendingEducation,
+  isPendingExperience,
 }) => {
   const controls = useAnimation();
   const { t } = useTranslation();
@@ -111,29 +113,29 @@ export const MarkupResume: FC<IMarkupResume> = ({
             initial="hidden"
             animate="visible"
           >
-            {experienceList.map(
-              ({ start_work, end_work, position, name_organization, id }) => (
+            {experienceList?.map(
+              ({ start_work, end_work, position, name_organization }) => (
                 <motion.li
-                  key={id}
+                  key={start_work}
                   variants={item}
                   className={`${styleItem} bg-[#80808029] odd:bg-[#eaa70c1c]`}
                 >
                   <p className={styleYear}>
-                    {isPendingEducation ? (
+                    {isPendingExperience ? (
                       <LoadingComponent />
                     ) : (
                       `${start_work} - ${end_work}`
                     )}
                   </p>
                   <h3 className={styleTitleItem}>
-                    {isPendingEducation ? (
+                    {isPendingExperience ? (
                       <LoadingComponent style="w-[40px] h-[20px]" />
                     ) : (
                       `${position}`
                     )}
                   </h3>
                   <p className={styleName}>
-                    {isPendingEducation ? (
+                    {isPendingExperience ? (
                       <LoadingComponent />
                     ) : (
                       `${name_organization}`

@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { getEducation } from '../../api/education';
-import { IEducation } from '../../types/typeResume';
+import { IEducation, IExperience } from '../../types/typeResume';
 import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
+import { getExperience } from '../../api/experience';
 
 export const useResumeRequest = () => {
   const { currentLanguage: language } = useLanguage();
@@ -14,8 +15,18 @@ export const useResumeRequest = () => {
     queryFn: () => getEducation(language),
   });
 
+  const { data: experienceList, isPending: isPendingExperience } = useQuery<
+    IExperience[],
+    Error
+  >({
+    queryKey: ['experience', language],
+    queryFn: () => getExperience(language),
+  });
+
   return {
     educationList,
     isPendingEducation,
+    experienceList,
+    isPendingExperience,
   };
 };

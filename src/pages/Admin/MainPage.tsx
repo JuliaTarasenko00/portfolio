@@ -1,14 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { options } from './options';
 import { motion, AnimatePresence } from 'framer-motion';
-import { signOut } from '../../api/auth';
+import { currentUser, signOut } from '../../api/auth';
 import { useAuth } from '../../helpers/context/authContext/useAuth';
 import { toast } from 'react-toastify';
 import { styleForToastity } from '../../components/ui/styleForToastity';
+import { IAuth } from '../../types/authResult';
 
 export default function MainPage() {
   const [selectedTab, setSelectTab] = useState(options[0]);
-  const { setToken } = useAuth();
+  const { setToken, token } = useAuth();
+
+  useEffect(() => {
+    if (token === '') return;
+
+    const fetchData = async () => {
+      try {
+        const result: IAuth = await currentUser();
+        setToken(result.token);
+        return;
+      } catch (error) {
+        console.log('error: ', error);
+        setToken('');
+      }
+    };
+    fetchData();
+  }, [setToken, token]);
 
   const logOut = async () => {
     try {

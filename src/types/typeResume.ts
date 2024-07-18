@@ -11,7 +11,6 @@ export interface IExperience {
   end_work: string;
   position: string;
   name_organization: string;
-  id: string;
 }
 
 export interface IWorkSkills {

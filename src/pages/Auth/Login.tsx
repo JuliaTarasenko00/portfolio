@@ -7,11 +7,13 @@ import { EmailInput } from '../../components/ui/input/EmailInput';
 import { signIn } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { routers } from '../../helpers/routes';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../../helpers/context/authContext/useAuth';
 import { toast } from 'react-toastify';
 import { styleForToastity } from '../../components/ui/styleForToastity';
 import { IAuth } from '../../types/authResult';
+import { LoadingComponent } from '../../components/ui/LoadingComponent';
+import { LoaderForComponent } from '../../components/ui/Loader/LoaderForCompenent';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -30,6 +32,7 @@ const initialValue: ValuesInput = {
 export default function Login() {
   const navigate = useNavigate();
   const { token, setToken } = useAuth();
+  const [loading, setLoading] = useState<boolean>(false);
   const {
     handleSubmit,
     control,
@@ -46,52 +49,63 @@ export default function Login() {
 
   const submitForm = async (value: ValuesInput) => {
     try {
+      setLoading(true);
       const result: IAuth = await signIn(value);
       setToken(result.token);
       navigate(routers.admin);
+      setLoading(false);
     } catch (error: any) {
+      setLoading(true);
       toast.error(error.message, styleForToastity);
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <section className="w-[350px] rounded-[30px] bg-[#fff] p-[40px]">
-      <h2 className="mb-[20px] text-[25px] font-bold italic text-main_color">
-        Login
-      </h2>
-      <form
-        className="flex w-[100%] flex-col gap-[10px]"
-        onSubmit={handleSubmit(submitForm)}
-      >
-        <Controller
-          name="email"
-          control={control}
-          render={({ field }) => (
-            <EmailInput
-              {...field}
-              errorMessage={errors.email?.message}
-              placeholder="Enter email"
+    <>
+      {loading && <LoaderForComponent />}
+      {!loading && (
+        <section className="w-[350px] rounded-[30px] bg-[#fff] p-[40px]">
+          <h2 className="mb-[20px] text-[25px] font-bold italic text-main_color">
+            Login
+          </h2>
+          <form
+            className="flex w-[100%] flex-col gap-[10px]"
+            onSubmit={handleSubmit(submitForm)}
+          >
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <EmailInput
+                  {...field}
+                  errorMessage={errors.email?.message}
+                  placeholder="Enter email"
+                />
+              )}
             />
-          )}
-        />
-        <Controller
-          name="password"
-          control={control}
-          render={({ field }) => (
-            <PasswordInput
-              {...field}
-              errorMessage={errors.password?.message}
-              placeholder="Enter password"
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <PasswordInput
+                  {...field}
+                  errorMessage={errors.password?.message}
+                  placeholder="Enter password"
+                />
+              )}
             />
-          )}
-        />
-        <button
-          type="submit"
-          className="rounded-[10px] bg-[#8855ff] p-[10px] text-[16px] font-bold text-[#fff]"
-        >
-          Submit
-        </button>
-      </form>
-    </section>
+            <button
+              type="submit"
+              className="rounded-[10px] bg-[#8855ff] p-[10px] text-[16px] font-bold text-[#fff]"
+            >
+              Submit
+            </button>
+          </form>
+        </section>
+      )}
+    </>
   );
 }

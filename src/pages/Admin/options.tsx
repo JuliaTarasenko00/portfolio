@@ -1,7 +1,7 @@
 import { FaAddressCard } from 'react-icons/fa6';
 import { ContactInformation } from '../../components/MarkupForAdmin/ContactInformation/ContactInformation';
 import { Education } from '../../components/MarkupForAdmin/Education/Education';
-import { Experience } from '../../components/MarkupForAdmin/Experience';
+import { Experience } from '../../components/MarkupForAdmin/Experience/Experience';
 import { Project } from '../../components/MarkupForAdmin/Project';
 import { PiProjectorScreenChartFill } from 'react-icons/pi';
 import { HiAcademicCap } from 'react-icons/hi2';

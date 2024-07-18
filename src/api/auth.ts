@@ -14,3 +14,9 @@ export const signIn = async (body: IBody) => {
 export const signOut = async () => {
   await $instants.post('/auth/signout');
 };
+
+export const currentUser = async () => {
+  const { data } = await $instants.get<IAuth>('/auth/current');
+
+  return data;
+};
