@@ -6,16 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {},
-      backgroundImage: {
-        contact: 'url("./assets/image/image_not_found.png")',
+      fontFamily: {
+        body: ['Montserrat', 'sans-serif'],
       },
-      transitionDuration: {
-        350: '350ms',
-      },
-      colors: {
-        main_color: '#242424',
-      },
+      backgroundImage: {},
     },
   },
   screens: {

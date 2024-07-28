@@ -1,68 +1,37 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
 import { CustomOutlet } from '../../helpers/CustomOutlet/CustomOutlet';
-import { routers } from '../../helpers/routes';
-import { Navigation } from './components/Navigations';
-import { ContactInformation } from './components/ContactInformation';
-import { HiAcademicCap } from 'react-icons/hi2';
-import { FaAddressCard } from 'react-icons/fa';
-import { PiProjectorScreenChartFill } from 'react-icons/pi';
-import { useTranslation } from 'react-i18next';
-import { token } from '../../i18n/token';
+import { useFetchMainInformation } from '../../helpers/useFetchMainInformation';
 
-export interface IOptions {
-  name: string;
-  patch: string;
-  image: React.ReactNode;
-}
-
-const Layout = () => {
-  const { t } = useTranslation();
-  const option: IOptions[] = [
-    {
-      name: `${t(token.nav.btnAbout)}`,
-      patch: routers.home,
-      image: <FaAddressCard />,
-    },
-    {
-      name: `${t(token.nav.btnResume)}`,
-      patch: routers.resume,
-      image: <HiAcademicCap />,
-    },
-    {
-      name: `${t(token.nav.btnProject)}`,
-      patch: routers.projects,
-      image: <PiProjectorScreenChartFill />,
-    },
-  ];
-  const [selectedTab, setSelectedTab] = useState<string>(option[0].name);
+export default function Layout() {
+  const { currentLanguage, language, setCurrentLanguage } = useLanguage();
+  const { data, isLoading } = useFetchMainInformation();
 
   return (
-    <div className="flex gap-[6%]">
-      <aside className="relative flex-grow">
-        <ContactInformation />
-      </aside>
-      <div className="">
-        <Navigation
-          option={option}
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-        />
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={selectedTab ? selectedTab : 'empty'}
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="min-h-[510px] w-[800px] max-w-[850px] rounded-[10px] bg-[#fff] p-[40px]"
-          >
+    <>
+      {isLoading && <p>Loading....</p>}
+      {!isLoading && (
+        <>
+          <header className="container relative flex justify-between py-[25px]">
+            <div className="circle left-[-100px] top-[-150px] h-[500px] w-[500px]"></div>
+            <div className="circle right-[-80px] top-[-50px] h-[200px] w-[200px]"></div>
+            <h2 className="text-[25px] text-[#fff] underline">{data?.name}</h2>
+            <ul>
+              {language.map((el: string) => (
+                <li
+                  onClick={() => setCurrentLanguage(el)}
+                  key={el}
+                  className={`${el === currentLanguage ? 'cursor-no-drop text-[grey]' : 'cursor-pointer text-[#fff]'} text-[18px] capitalize`}
+                >
+                  {el}
+                </li>
+              ))}
+            </ul>
+          </header>
+          <main>
             <CustomOutlet />
-          </motion.main>
-        </AnimatePresence>
-      </div>
-    </div>
+          </main>
+        </>
+      )}
+    </>
   );
-};
-
-export default Layout;
+}

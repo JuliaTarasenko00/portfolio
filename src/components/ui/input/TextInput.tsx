@@ -7,7 +7,7 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export const TextInput: FC<TextInputProps> = forwardRef(
   ({ errorMessage, ...rest }, _ref: React.ForwardedRef<HTMLInputElement>) => {
     return (
-      <div>
+      <>
         <input
           {...rest}
           ref={_ref}
@@ -17,7 +17,7 @@ export const TextInput: FC<TextInputProps> = forwardRef(
         {errorMessage && (
           <p className="text-[10px] text-[red]">{errorMessage}</p>
         )}
-      </div>
+      </>
     );
   },
 );

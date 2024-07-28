@@ -14,4 +14,5 @@ export interface IContactInformation {
   git: string;
   linkedin: string;
   cv: string;
+  telegram: string;
 }
