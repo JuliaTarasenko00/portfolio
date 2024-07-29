@@ -1,6 +1,7 @@
 import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
 import { CustomOutlet } from '../../helpers/CustomOutlet/CustomOutlet';
 import { useFetchMainInformation } from '../../helpers/useFetchMainInformation';
+import Loader from '../ui/loader/Loader';
 
 export default function Layout() {
   const { currentLanguage, language, setCurrentLanguage } = useLanguage();
@@ -8,7 +9,7 @@ export default function Layout() {
 
   return (
     <>
-      {isLoading && <p>Loading....</p>}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           <header className="container relative flex justify-between py-[25px]">
@@ -20,7 +21,7 @@ export default function Layout() {
                 <li
                   onClick={() => setCurrentLanguage(el)}
                   key={el}
-                  className={`${el === currentLanguage ? 'cursor-no-drop text-[grey]' : 'cursor-pointer text-[#fff]'} text-[18px] capitalize`}
+                  className={`${el === currentLanguage ? 'cursor-no-drop text-[grey] line-through' : 'cursor-pointer text-[#fff]'} text-[18px] capitalize`}
                 >
                   {el}
                 </li>

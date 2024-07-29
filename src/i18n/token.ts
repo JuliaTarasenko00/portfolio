@@ -1,4 +1,8 @@
 export const token = {
+  loader: {
+    title: 'loader.title',
+  },
+
   title: {
     goal: 'title.goal',
     about: 'title.about',
