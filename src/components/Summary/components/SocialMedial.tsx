@@ -60,20 +60,27 @@ export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
       {options.map(({ name, href, icon }: TOptions) => (
         <motion.li key={name} className="item" variants={item}>
           {name !== 'Email' ? (
-            <a
+            <motion.a
               href={href}
               className={styleLink}
               target="_blank"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 2 }}
               rel="noopener noreferrer"
             >
               <span className={styleSpan}>{icon}</span>
               {name}
-            </a>
+            </motion.a>
           ) : (
-            <a className={styleLink} href={`mailto:${href}`}>
+            <motion.a
+              className={styleLink}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 2 }}
+              href={`mailto:${href}`}
+            >
               <span className={styleSpan}>{icon}</span>
               {name}
-            </a>
+            </motion.a>
           )}
         </motion.li>
       ))}

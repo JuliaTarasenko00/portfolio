@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useFetchMainInformation } from '../../helpers/useFetchMainInformation';
 import { token } from '../../i18n/token';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { routers } from '../../helpers/routes';
 import { IContactInformation } from '../../types/typeContactInformation';
 import { SocialMedial } from './components/SocialMedial';
+import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
 
 export const Summary = () => {
-  const { data } = useFetchMainInformation();
+  const { data } = useMainInformation();
   const { t } = useTranslation();
 
   return (

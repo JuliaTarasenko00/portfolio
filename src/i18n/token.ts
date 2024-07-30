@@ -10,5 +10,7 @@ export const token = {
     experience: 'title.experience',
     skills: 'title.skills',
     project: 'title.project',
+    description: 'title.description',
+    checkProjects: 'title.checkProjects',
   },
 };

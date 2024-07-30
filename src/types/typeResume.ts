@@ -15,6 +15,6 @@ export interface IExperience {
 
 export interface IWorkSkills {
   name_skill: string;
-  image: string;
+  type: string;
   _id?: string;
 }

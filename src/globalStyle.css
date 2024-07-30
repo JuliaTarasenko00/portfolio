@@ -23,8 +23,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #eaa70c;
-  border-radius: 15px;
+  background-color: #565656;
+  border-radius: 2px;
 }
 
 #root {
@@ -66,10 +66,14 @@ svg {
 
 @layer utilities {
   .container {
-    @apply mx-[auto] my-[0] w-[1440px] px-[30px];
+    @apply mx-[auto] my-[0] w-[1340px] px-[30px];
   }
 
   .circle {
     @apply absolute z-[-1] rounded-[50%] border-[2px] border-[#4b4a4a];
+  }
+
+  .transition_custom {
+    @apply transition-colors duration-500 ease-in;
   }
 }
