@@ -33,17 +33,23 @@ export const Summary = () => {
             {t(token.title.goal)}
           </motion.p>
         </div>
-        <Link
-          to={routers.projects}
-          className="flex items-center justify-end gap-[10px]"
+        <motion.div
+          className="ml-auto w-max"
+          whileHover={{ scale: [null, 1, 1.1] }}
+          transition={{ duration: 0.4 }}
         >
-          <span className="w-[270px] max-w-[100%] rounded-[30px] bg-[#fff] py-[10px] text-center text-[20px] italic text-[#000]">
-            {t(token.title.project)}
-          </span>
-          <span className="block rounded-[50%] bg-[#fff] p-[15px]">
-            <FaArrowRightLong className="w-[20px] text-[#000]" />
-          </span>
-        </Link>
+          <Link
+            to={routers.projects}
+            className="flex items-center justify-end gap-[10px]"
+          >
+            <span className="w-[270px] max-w-[100%] rounded-[30px] bg-[#fff] py-[10px] text-center text-[20px] italic text-[#000]">
+              {t(token.title.project)}
+            </span>
+            <span className="block rounded-[50%] bg-[#fff] p-[15px]">
+              <FaArrowRightLong className="w-[20px] text-[#000]" />
+            </span>
+          </Link>
+        </motion.div>
         <SocialMedial data={data as IContactInformation} />
       </div>
     </section>

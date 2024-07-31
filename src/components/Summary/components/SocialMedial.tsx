@@ -65,7 +65,7 @@ export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
               className={styleLink}
               target="_blank"
               whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring', stiffness: 100, damping: 2 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 9 }}
               rel="noopener noreferrer"
             >
               <span className={styleSpan}>{icon}</span>
@@ -75,7 +75,7 @@ export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
             <motion.a
               className={styleLink}
               whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring', stiffness: 100, damping: 2 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 9 }}
               href={`mailto:${href}`}
             >
               <span className={styleSpan}>{icon}</span>

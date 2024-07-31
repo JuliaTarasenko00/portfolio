@@ -10,7 +10,6 @@ export const uk = {
   [token.title.about]: 'Про Мене',
   [token.title.education]: 'Навчання',
   [token.title.experience]: 'Досвід Роботи',
-  [token.title.skills]: 'Технічні навички',
   [token.title.project]: 'Проєкти',
   [token.title.description]:
     'Мене звати Юлія Штим, і я front-end розробник з пристрастю до створення стильних, функціональних та інтуїтивних веб-додатків.',

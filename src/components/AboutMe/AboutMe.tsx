@@ -6,9 +6,10 @@ import { FaGithub } from 'react-icons/fa6';
 import { GoArrowUpRight } from 'react-icons/go';
 
 const stileWrapper =
-  'hover:transition_custom focus:transition_custom rounded-[20px] border-[1px] border-[#565656] bg-transparent p-[20px] text-[#919090] hover:border-[transparent] hover:bg-[#ffffffde] hover:text-[#000]';
+  ' group hover:transition_custom focus:transition_custom rounded-[20px] border-[1px] border-[#565656] bg-transparent p-[20px] text-[#919090] hover:border-[transparent] hover:bg-[#ffffffde] hover:text-[#000] focus:border-[transparent] focus:bg-[#ffffffde] focus:text-[#000]';
 
-const styleTitle = 'mb-[15px] text-[25px] font-medium';
+const styleTitle =
+  'mb-[15px] text-[25px] text-[#c1c1c1] group-hover:text-[#000] group-focus:text-[#000] group-hover:transition_custom group-focus:transition_custom font-medium underline';
 
 const styleList = 'flex max-w-full flex-wrap gap-[2px]';
 
@@ -20,7 +21,7 @@ export const AboutMe = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="mt-[40px]">
+    <section className="pt-[40px]">
       <div className="container relative">
         <div className="circle right-[-20%] top-[-60px] h-[600px] w-[600px]"></div>
         <h2 className="mb-[50px] text-[15px] font-bold text-[#fff]">

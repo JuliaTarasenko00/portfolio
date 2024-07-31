@@ -5,6 +5,7 @@ import { getExperience } from '../../api/experience';
 
 export const useFetchExperience = () => {
   const { currentLanguage: language } = useLanguage();
+
   const { data } = useQuery<IExperience[]>({
     queryKey: ['fetch/experience', language],
     queryFn: () => getExperience(language),
