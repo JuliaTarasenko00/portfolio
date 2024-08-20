@@ -13,7 +13,7 @@ export default function Layout() {
       {!isLoading && (
         <>
           <header className="container relative flex justify-between py-[25px]">
-            <div className="circle left-[-140px] top-[-150px] h-[500px] w-[500px]"></div>
+            <div className="circle left-[-140px] top-[-220px] h-[500px] w-[500px]"></div>
             <div className="circle right-[-100px] top-[-80px] h-[200px] w-[200px]"></div>
             <h2 className="text-[25px] text-[#fff] underline">{data?.name}</h2>
             <ul>

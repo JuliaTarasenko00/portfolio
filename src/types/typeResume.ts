@@ -4,6 +4,7 @@ export interface IEducation {
   degree: string;
   programme_subject: string | undefined;
   name_organization: string;
+  _id?: string;
 }
 
 export interface IExperience {
@@ -11,6 +12,7 @@ export interface IExperience {
   end_work: string;
   position: string;
   name_organization: string;
+  _id?: string;
 }
 
 export interface IWorkSkills {

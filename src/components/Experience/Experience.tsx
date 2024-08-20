@@ -55,7 +55,7 @@ export const Experience = () => {
         </h2>
         <ul>
           {data?.map(
-            ({ start_work, end_work, name_organization, position }) => {
+            ({ start_work, end_work, name_organization, position, _id }) => {
               const { years, months } = calculateDifference(
                 start_work,
                 end_work,
@@ -64,7 +64,7 @@ export const Experience = () => {
                 <motion.li
                   whileHover={{ scale: [null, 1, 1.1] }}
                   transition={{ duration: 0.3 }}
-                  key={name_organization}
+                  key={_id}
                   className="grid grid-cols-3 items-center border-b border-t border-[#4b4a4a] px-[30px] py-[10px]"
                 >
                   <div>
