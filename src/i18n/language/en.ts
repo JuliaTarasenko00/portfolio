@@ -10,7 +10,7 @@ export const en = {
   [token.title.about]: 'About me',
   [token.title.education]: 'Education',
   [token.title.experience]: 'Work',
-  [token.title.project]: 'Projects',
+  [token.title.projects]: 'Projects',
   [token.title.description]:
     'My name is Yuliia Shtym, and I am a front-end developer with a passion for creating stylish, functional and intuitive web applications.',
   [token.title.checkProjects]:

@@ -8,7 +8,7 @@ export const token = {
     about: 'title.about',
     education: 'title.education',
     experience: 'title.experience',
-    project: 'title.project',
+    projects: 'title.projects',
     description: 'title.description',
     checkProjects: 'title.checkProjects',
   },

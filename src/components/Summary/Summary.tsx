@@ -43,7 +43,7 @@ export const Summary = () => {
             className="flex items-center justify-end gap-[10px]"
           >
             <span className="w-[270px] max-w-[100%] rounded-[30px] bg-[#fff] py-[10px] text-center text-[20px] italic text-[#000]">
-              {t(token.title.project)}
+              {t(token.title.projects)}
             </span>
             <span className="block rounded-[50%] bg-[#fff] p-[15px]">
               <FaArrowRightLong className="w-[20px] text-[#000]" />
