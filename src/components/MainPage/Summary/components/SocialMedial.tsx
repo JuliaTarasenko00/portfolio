@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 import { TbBrandGithubFilled } from 'react-icons/tb';
 import { BsFileTextFill } from 'react-icons/bs';
 import { BiLogoTelegram } from 'react-icons/bi';
-import { IContactInformation } from '../../../types/typeContactInformation';
+import { IContactInformation } from '../../../../types/typeContactInformation';
 
 interface ISocialMedial {
   data: IContactInformation;

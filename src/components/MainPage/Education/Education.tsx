@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { token } from '../../i18n/token';
 import { useFetchEducation } from './useFetchEducation';
+import { token } from '../../../i18n/token';
 
 export const Education = () => {
   const { t } = useTranslation();

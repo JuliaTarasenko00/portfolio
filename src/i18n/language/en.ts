@@ -15,4 +15,6 @@ export const en = {
     'My name is Yuliia Shtym, and I am a front-end developer with a passion for creating stylish, functional and intuitive web applications.',
   [token.title.checkProjects]:
     'Check out my projects to see how I can help you create an impressive product.',
+
+  [token.tip]: 'to main page',
 };

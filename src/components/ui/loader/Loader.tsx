@@ -18,7 +18,7 @@ export default function Loader() {
   }, [updateTime]);
 
   return (
-    <div className="relative h-[100vh] w-full">
+    <div className="absolute top-0 h-[100vh] w-full bg-[#121212]">
       <div className={style.loader}>
         {time >= 5 && (
           <p className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-[20px] italic text-[#fff]">

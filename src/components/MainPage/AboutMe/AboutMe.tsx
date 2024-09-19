@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useFetchSkills } from './useFetchSkills';
-import { token } from '../../i18n/token';
-import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
+import { token } from '../../../i18n/token';
+import { useMainInformation } from '../../../helpers/context/mainInformarion/useMainInformation';
 import { FaGithub } from 'react-icons/fa6';
 import { GoArrowUpRight } from 'react-icons/go';
 

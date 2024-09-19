@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { token } from '../../i18n/token';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
-import { routers } from '../../helpers/routes';
-import { IContactInformation } from '../../types/typeContactInformation';
 import { SocialMedial } from './components/SocialMedial';
-import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
+import { useMainInformation } from '../../../helpers/context/mainInformarion/useMainInformation';
+import { token } from '../../../i18n/token';
+import { routers } from '../../../helpers/routes';
+import { IContactInformation } from '../../../types/typeContactInformation';
 
 export const Summary = () => {
   const { data } = useMainInformation();
@@ -14,27 +14,27 @@ export const Summary = () => {
 
   return (
     <section className="mt-[40px]">
-      <div className="container">
+      <div className="container relative">
         <div className="relative mb-[50px]">
           <motion.h1
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-[100px] leading-[1.1] tracking-[0.03em] text-[#fff]"
+            className="text-[100px] italic leading-[1.1] tracking-[0.03em] text-[#fff]"
           >
-            {data?.position}
+            ...{data?.position}...
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="absolute bottom-0 right-[20px] max-w-[670px] text-[18px] leading-[1.33] tracking-[0.03em] text-[#919090]"
+            className="mt-[20px] max-w-[670px] text-[18px] leading-[1.33] tracking-[0.03em] text-[#919090]"
           >
             {t(token.title.goal)}
           </motion.p>
         </div>
         <motion.div
-          className="ml-auto w-max"
+          className="absolute right-0 top-[50%] ml-auto w-max"
           whileHover={{ scale: [null, 1, 1.1] }}
           transition={{ duration: 0.4 }}
         >

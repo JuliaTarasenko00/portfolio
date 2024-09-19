@@ -12,4 +12,6 @@ export const token = {
     description: 'title.description',
     checkProjects: 'title.checkProjects',
   },
+
+  tip: 'tip.goMain',
 };

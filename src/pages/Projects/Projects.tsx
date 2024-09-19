@@ -24,13 +24,17 @@ export default function Projects() {
     <>
       {isLoading && <Loader />}
       {!isLoading && (
-        <section className="pb-[55px] pt-[20px]">
+        <section className="pb-[95px] pt-[20px]">
           <div className="container relative">
+            <div className="circle right-[-20%] top-[20%] h-[390px] w-[390px]"></div>
+            <div className="circle bottom-[25%] left-[-20%] h-[390px] w-[390px]"></div>
+            <div className="circle bottom-[-10%] right-[-20%] h-[450px] w-[450px]"></div>
             <h2 className="mb-[50px] text-center text-[25px] font-bold text-[#fff]">
               .../{t(token.title.projects)}...
             </h2>
             <button
               type="button"
+              title={t(token.tip)}
               onClick={() => navigation(routers.home)}
               className="absolute left-0 top-0 h-[30px] w-[30px] rounded-[20px] border-[1px] border-[#fff] p-[5px] text-[#fff]"
             >

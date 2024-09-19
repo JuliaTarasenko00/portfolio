@@ -2,9 +2,10 @@ import { motion } from 'framer-motion';
 import { differenceInMonths, differenceInYears } from 'date-fns';
 import { IntlProvider, FormattedMessage } from 'react-intl';
 import { useFetchExperience } from './useFetchExperience';
-import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
-import { token } from '../../i18n/token';
+
 import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../../../helpers/context/languageContext/useLanguage';
+import { token } from '../../../i18n/token';
 
 const messages = {
   uk: {
