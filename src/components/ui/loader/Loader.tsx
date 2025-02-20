@@ -3,6 +3,9 @@ import style from './loader.module.css';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { token } from '../../../i18n/token';
+import { createPortal } from 'react-dom';
+
+const loaderRoot: HTMLElement = document.getElementById('loader');
 
 export default function Loader() {
   const [time, setTime] = useState<number>(0);
@@ -17,7 +20,7 @@ export default function Loader() {
     return () => clearInterval(interval);
   }, [updateTime]);
 
-  return (
+  return createPortal(
     <div className="absolute top-0 h-[100vh] w-full bg-[#121212]">
       <div className={style.loader}>
         {time >= 5 && (
@@ -36,6 +39,7 @@ export default function Loader() {
           {t(token.loader.title)}
         </motion.p>
       )}
-    </div>
+    </div>,
+    loaderRoot,
   );
 }

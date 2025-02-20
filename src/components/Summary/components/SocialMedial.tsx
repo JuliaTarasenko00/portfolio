@@ -5,7 +5,7 @@ import { MdEmail } from 'react-icons/md';
 import { TbBrandGithubFilled } from 'react-icons/tb';
 import { BsFileTextFill } from 'react-icons/bs';
 import { BiLogoTelegram } from 'react-icons/bi';
-import { IContactInformation } from '../../../../types/typeContactInformation';
+import { IContactInformation } from '../../../types/typeContactInformation';
 
 interface ISocialMedial {
   data: IContactInformation;
@@ -50,6 +50,7 @@ export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
     { name: 'Telegram', href: data.telegram, icon: <BiLogoTelegram /> },
     { name: 'CV', href: data.cv, icon: <BsFileTextFill /> },
   ];
+
   return (
     <motion.ul
       className={`${container} mt-[24px] flex items-center justify-center gap-[15px]`}

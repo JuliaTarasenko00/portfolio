@@ -7,7 +7,7 @@ import Loader from './ui/loader/Loader';
 
 const Layout = lazy(() => import('../components/Layout/Layout'));
 const MainPage = lazy(() => import('../pages/Main/Main'));
-const Projects = lazy(() => import('../pages/Projects/Projects'));
+const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path={routers.home} element={<Layout />}>
             <Route index element={<MainPage />} />
-            <Route path={routers.projects} element={<Projects />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <ToastContainer />

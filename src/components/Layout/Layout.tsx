@@ -12,23 +12,27 @@ export default function Layout() {
       {isLoading && <Loader />}
       {!isLoading && (
         <>
-          <header className="container relative flex justify-between py-[25px]">
-            <div className="circle left-[-140px] top-[-220px] h-[500px] w-[500px]"></div>
-            <div className="circle right-[-100px] top-[-80px] h-[200px] w-[200px]"></div>
+          <header className="container flex justify-between py-[25px]">
             <h2 className="text-[25px] text-[#fff] underline">{data?.name}</h2>
             <ul>
               {language.map((el: string) => (
                 <li
                   onClick={() => setCurrentLanguage(el)}
                   key={el}
-                  className={`${el === currentLanguage ? 'cursor-no-drop text-[grey] line-through' : 'cursor-pointer text-[#fff]'} text-[18px] capitalize`}
+                  className={`${el === currentLanguage ? 'cursor-no-drop italic text-[grey]' : 'cursor-pointer text-[#fff]'} text-[18px] capitalize`}
                 >
-                  {el}
+                  {el === currentLanguage ? (
+                    <>
+                      {'//'} {el}
+                    </>
+                  ) : (
+                    <>{el}</>
+                  )}
                 </li>
               ))}
             </ul>
           </header>
-          <main>
+          <main className="">
             <CustomOutlet />
           </main>
         </>

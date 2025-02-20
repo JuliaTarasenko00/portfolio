@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { getFrontSkills, getStyleSkills } from '../../../api/work_skills';
-import { IWorkSkills } from '../../../types/typeResume';
+import { IWorkSkills } from '../../types/typeResume';
+import { getFrontSkills, getStyleSkills } from '../../api/work_skills';
 
 export const useFetchSkills = () => {
   const { data: front } = useQuery<IWorkSkills[]>({

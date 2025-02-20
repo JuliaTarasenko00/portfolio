@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { differenceInMonths, differenceInYears } from 'date-fns';
 import { IntlProvider, FormattedMessage } from 'react-intl';
-import { useFetchExperience } from './useFetchExperience';
-
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '../../../helpers/context/languageContext/useLanguage';
-import { token } from '../../../i18n/token';
+
+import { useFetchExperience } from './useFetchExperience';
+import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
+import { token } from '../../i18n/token';
 
 const messages = {
   uk: {
@@ -41,7 +41,9 @@ export const Experience = () => {
   const calculateDifference = (start: string, end: string) => {
     const startDate: Date = formatDate(start);
     const endDate: Date = formatDate(end);
+    console.log('endDate: ', endDate);
     const years: number = differenceInYears(endDate, startDate);
+    console.log('years: ', years);
     const months: number = differenceInMonths(endDate, startDate) % 12;
 
     return { years, months };
@@ -50,9 +52,10 @@ export const Experience = () => {
   return (
     <section className="pt-[50px]">
       <div className="container relative">
-        <div className="circle bottom-[-30%] left-[-25%] h-[390px] w-[390px]"></div>
-        <h2 className="text-end text-[90px] font-bold text-[#fff]">
+        <h2 className="text-end text-[70px] font-bold italic text-[#fff]">
+          {'<'}
           {t(token.title.experience)}
+          {'/>'}
         </h2>
         <ul>
           {data?.map(
@@ -61,6 +64,7 @@ export const Experience = () => {
                 start_work,
                 end_work,
               );
+
               return (
                 <motion.li
                   whileHover={{ scale: [null, 1, 1.1] }}

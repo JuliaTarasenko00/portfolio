@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { FaArrowRightLong } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+
+import { token } from '../../i18n/token';
 import { SocialMedial } from './components/SocialMedial';
-import { useMainInformation } from '../../../helpers/context/mainInformarion/useMainInformation';
-import { token } from '../../../i18n/token';
-import { routers } from '../../../helpers/routes';
-import { IContactInformation } from '../../../types/typeContactInformation';
+import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
+import { IContactInformation } from '../../types/typeContactInformation';
 
 export const Summary = () => {
   const { data } = useMainInformation();
@@ -38,17 +36,12 @@ export const Summary = () => {
           whileHover={{ scale: [null, 1, 1.1] }}
           transition={{ duration: 0.4 }}
         >
-          <Link
-            to={routers.projects}
-            className="flex items-center justify-end gap-[10px]"
+          <a
+            href="#projects"
+            className="block w-[270px] max-w-[100%] rounded-[30px] bg-[#fff] py-[10px] text-center text-[20px] italic text-[#000]"
           >
-            <span className="w-[270px] max-w-[100%] rounded-[30px] bg-[#fff] py-[10px] text-center text-[20px] italic text-[#000]">
-              {t(token.title.projects)}
-            </span>
-            <span className="block rounded-[50%] bg-[#fff] p-[15px]">
-              <FaArrowRightLong className="w-[20px] text-[#000]" />
-            </span>
-          </Link>
+            {t(token.title.projects)}
+          </a>
         </motion.div>
         <SocialMedial data={data as IContactInformation} />
       </div>

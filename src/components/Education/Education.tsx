@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
+
 import { useFetchEducation } from './useFetchEducation';
-import { token } from '../../../i18n/token';
+import { token } from '../../i18n/token';
 
 export const Education = () => {
   const { t } = useTranslation();
@@ -9,9 +10,10 @@ export const Education = () => {
   return (
     <section className="overflow-hidden pb-[60px] pt-[45px]">
       <div className="container relative">
-        <div className="circle bottom-[-30%] right-[-20%] h-[390px] w-[390px]"></div>
-        <h2 className="text-[90px] font-bold text-[#fff]">
+        <h2 className="text-[70px] font-bold italic text-[#fff]">
+          {'<'}
           {t(token.title.education)}
+          {'/>'}
         </h2>
         <ul>
           {data?.map(

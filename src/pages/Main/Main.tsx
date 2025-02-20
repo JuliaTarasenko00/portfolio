@@ -1,7 +1,8 @@
-import { AboutMe } from '../../components/MainPage/AboutMe/AboutMe';
-import { Education } from '../../components/MainPage/Education/Education';
-import { Experience } from '../../components/MainPage/Experience/Experience';
-import { Summary } from '../../components/MainPage/Summary/Summary';
+import { Education } from '../../components/Education/Education';
+import { Experience } from '../../components/Experience/Experience';
+import { Summary } from '../../components/Summary/Summary';
+import { Projects } from '../../components/Projects/Projects';
+import { AboutMe } from '../../components/AboutMe/AboutMe';
 
 export default function Main() {
   return (
@@ -10,6 +11,7 @@ export default function Main() {
       <AboutMe />
       <Experience />
       <Education />
+      <Projects />
     </>
   );
 }
