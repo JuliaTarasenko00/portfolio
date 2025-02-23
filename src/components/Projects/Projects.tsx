@@ -10,6 +10,7 @@ import { token } from '../../i18n/token';
 import { TbBrandGithubFilled } from 'react-icons/tb';
 import { GoArrowUpRight } from 'react-icons/go';
 import { RiPagesFill } from 'react-icons/ri';
+import { siteRoute } from '../../helpers/routes';
 
 export const Projects = () => {
   const { t } = useTranslation();
@@ -35,9 +36,9 @@ export const Projects = () => {
   return (
     <>
       <section
-        id="projects"
+        id={siteRoute.projects}
         ref={galleryRef}
-        className="container relative pt-[20px]"
+        className="container relative py-[40px]"
         style={{
           height: data?.length ? `${(data?.length - 1) * 100}vh` : '50vh',
         }}
@@ -153,11 +154,11 @@ export const Projects = () => {
               },
             )}
           </motion.ul>
-        </div>{' '}
-        <motion.div
-          className="fixed bottom-12 left-0 right-0 h-[5px] origin-left bg-[#fff]"
+        </div>
+        {/* <motion.div
+          className="fixed bottom-12 left-[0] right-[0] h-[3px] origin-center bg-[#ffffffbe]"
           style={{ scaleX: scrollYProgress }}
-        />
+        /> */}
       </section>
     </>
   );

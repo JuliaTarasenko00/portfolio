@@ -2,13 +2,17 @@ import { useTranslation } from 'react-i18next';
 
 import { useFetchEducation } from './useFetchEducation';
 import { token } from '../../i18n/token';
+import { siteRoute } from '../../helpers/routes';
 
 export const Education = () => {
   const { t } = useTranslation();
   const { data } = useFetchEducation();
 
   return (
-    <section className="overflow-hidden pb-[60px] pt-[45px]">
+    <section
+      className="overflow-hidden pb-[60px] pt-[45px]"
+      id={siteRoute.education}
+    >
       <div className="container relative">
         <h2 className="text-[70px] font-bold italic text-[#fff]">
           {'<'}

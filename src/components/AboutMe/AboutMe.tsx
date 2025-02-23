@@ -5,6 +5,7 @@ import { GoArrowUpRight } from 'react-icons/go';
 import { useFetchSkills } from './useFetchSkills';
 import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
 import { token } from '../../i18n/token';
+import { siteRoute } from '../../helpers/routes';
 
 const stileWrapper =
   ' group hover:transition_custom focus:transition_custom rounded-[20px] border-[1px] border-[#565656] bg-transparent p-[20px] text-[#919090] hover:border-[transparent] hover:bg-[#ffffffde] hover:text-[#000] focus:border-[transparent] focus:bg-[#ffffffde] focus:text-[#000]';
@@ -22,7 +23,7 @@ export const AboutMe = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="pt-[40px]">
+    <section className="pt-[40px]" id={siteRoute.about}>
       <div className="container relative">
         <h2 className="mb-[50px] text-[15px] font-bold text-[#fff]">
           .../{t(token.title.about)} ...

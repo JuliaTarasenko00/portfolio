@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { token } from '../../../i18n/token';
 import { createPortal } from 'react-dom';
 
-const loaderRoot: HTMLElement = document.getElementById('loader');
+const loaderRoot: HTMLElement | null = document.getElementById('loader');
 
 export default function Loader() {
   const [time, setTime] = useState<number>(0);
@@ -40,6 +40,6 @@ export default function Loader() {
         </motion.p>
       )}
     </div>,
-    loaderRoot,
+    loaderRoot as HTMLDivElement,
   );
 }

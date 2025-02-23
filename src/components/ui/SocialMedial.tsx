@@ -5,15 +5,15 @@ import { MdEmail } from 'react-icons/md';
 import { TbBrandGithubFilled } from 'react-icons/tb';
 import { BsFileTextFill } from 'react-icons/bs';
 import { BiLogoTelegram } from 'react-icons/bi';
-import { IContactInformation } from '../../../types/typeContactInformation';
+import { IContactInformation } from '../../types/typeContactInformation';
 
 interface ISocialMedial {
-  data: IContactInformation;
+  data: IContactInformation | undefined;
 }
 
 type TOptions = {
   name: string;
-  href: string;
+  href: string | undefined;
   icon: React.ReactNode;
 };
 
@@ -44,22 +44,26 @@ const styleSpan = 'h-[25px] w-[25px] text-[#fff]';
 
 export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
   const options: TOptions[] = [
-    { name: 'LinkedIn', href: data.linkedin, icon: <GrLinkedinOption /> },
-    { name: 'Email', href: data.email, icon: <MdEmail /> },
-    { name: 'GitHub', href: data.git, icon: <TbBrandGithubFilled /> },
-    { name: 'Telegram', href: data.telegram, icon: <BiLogoTelegram /> },
-    { name: 'CV', href: data.cv, icon: <BsFileTextFill /> },
+    { name: 'LinkedIn', href: data?.linkedin, icon: <GrLinkedinOption /> },
+    { name: 'Email', href: data?.email, icon: <MdEmail /> },
+    { name: 'GitHub', href: data?.git, icon: <TbBrandGithubFilled /> },
+    { name: 'Telegram', href: data?.telegram, icon: <BiLogoTelegram /> },
+    { name: 'CV', href: data?.cv, icon: <BsFileTextFill /> },
   ];
 
   return (
     <motion.ul
-      className={`${container} mt-[24px] flex items-center justify-center gap-[15px]`}
+      className={`${container} mx-auto mt-[34px] flex w-[700px] items-center justify-center gap-[15px]`}
       variants={container}
       initial="hidden"
       animate="visible"
     >
       {options.map(({ name, href, icon }: TOptions) => (
-        <motion.li key={name} className="item" variants={item}>
+        <motion.li
+          key={name}
+          className={`${item} ${name === 'GitHub' ? 'flex-[1] place-items-center' : ''} `}
+          variants={item}
+        >
           {name !== 'Email' ? (
             <motion.a
               href={href}

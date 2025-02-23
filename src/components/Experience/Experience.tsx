@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useFetchExperience } from './useFetchExperience';
 import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
 import { token } from '../../i18n/token';
+import { siteRoute } from '../../helpers/routes';
 
 const messages = {
   uk: {
@@ -41,16 +42,14 @@ export const Experience = () => {
   const calculateDifference = (start: string, end: string) => {
     const startDate: Date = formatDate(start);
     const endDate: Date = formatDate(end);
-    console.log('endDate: ', endDate);
     const years: number = differenceInYears(endDate, startDate);
-    console.log('years: ', years);
     const months: number = differenceInMonths(endDate, startDate) % 12;
 
     return { years, months };
   };
 
   return (
-    <section className="pt-[50px]">
+    <section className="pt-[50px]" id={siteRoute.work}>
       <div className="container relative">
         <h2 className="text-end text-[70px] font-bold italic text-[#fff]">
           {'<'}

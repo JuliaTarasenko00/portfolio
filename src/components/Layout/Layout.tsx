@@ -1,6 +1,7 @@
 import { useLanguage } from '../../helpers/context/languageContext/useLanguage';
 import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
 import { CustomOutlet } from '../../helpers/CustomOutlet/CustomOutlet';
+import { Footer } from '../Footer/Footer';
 import Loader from '../ui/loader/Loader';
 
 export default function Layout() {
@@ -32,9 +33,12 @@ export default function Layout() {
               ))}
             </ul>
           </header>
-          <main className="">
+          <main>
             <CustomOutlet />
           </main>
+          <footer>
+            <Footer />
+          </footer>
         </>
       )}
     </>

@@ -9,3 +9,11 @@ export const routers: IRouter = {
   admin: '/admin',
   login: '/login',
 };
+
+export const siteRoute = {
+  main: 'main',
+  about: 'about_me',
+  work: 'work',
+  education: 'education',
+  projects: 'projects',
+};

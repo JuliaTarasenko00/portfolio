@@ -2,16 +2,17 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import { token } from '../../i18n/token';
-import { SocialMedial } from './components/SocialMedial';
+import { SocialMedial } from '../ui/SocialMedial';
 import { useMainInformation } from '../../helpers/context/mainInformarion/useMainInformation';
 import { IContactInformation } from '../../types/typeContactInformation';
+import { siteRoute } from '../../helpers/routes';
 
 export const Summary = () => {
   const { data } = useMainInformation();
   const { t } = useTranslation();
 
   return (
-    <section className="mt-[40px]">
+    <section className="mt-[40px]" id={siteRoute.main}>
       <div className="container relative">
         <div className="relative mb-[50px]">
           <motion.h1
@@ -37,7 +38,7 @@ export const Summary = () => {
           transition={{ duration: 0.4 }}
         >
           <a
-            href="#projects"
+            href={`#${siteRoute.projects}`}
             className="block w-[270px] max-w-[100%] rounded-[30px] bg-[#fff] py-[10px] text-center text-[20px] italic text-[#000]"
           >
             {t(token.title.projects)}
