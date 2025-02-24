@@ -8,7 +8,7 @@ import { token } from '../../i18n/token';
 import { siteRoute } from '../../helpers/routes';
 
 const stileWrapper =
-  ' group hover:transition_custom focus:transition_custom rounded-[20px] border-[1px] border-[#565656] bg-transparent p-[20px] text-[#919090] hover:border-[transparent] hover:bg-[#ffffffde] hover:text-[#000] focus:border-[transparent] focus:bg-[#ffffffde] focus:text-[#000]';
+  ' group hover:transition_custom focus:transition_custom rounded-[20px] border-[1px] border-[#565656] bg-transparent p-[10px] xl:p-[20px] text-[#919090] hover:border-[transparent] hover:bg-[#ffffffde] hover:text-[#000] focus:border-[transparent] focus:bg-[#ffffffde] focus:text-[#000]';
 
 const styleTitle =
   'mb-[15px] text-[25px] text-[#c1c1c1] group-hover:text-[#000] group-focus:text-[#000] group-hover:transition_custom group-focus:transition_custom font-medium underline';
@@ -25,12 +25,19 @@ export const AboutMe = () => {
   return (
     <section className="pt-[40px]" id={siteRoute.about}>
       <div className="container relative">
-        <h2 className="mb-[50px] text-[15px] font-bold text-[#fff]">
+        <h2 className="mb-[20px] text-end text-[15px] font-bold text-[#f5f5f5] xl:mb-[50px] xl:text-start">
           .../{t(token.title.about)} ...
         </h2>
-        <p className="mx-auto mb-[40px] max-w-[650px] text-[15px] font-normal leading-[1.33] tracking-[0.03em]">
+        <p className="mx-auto mb-[20px] max-w-[650px] text-balance text-center text-[13px] font-normal leading-[1.33] tracking-[0.03em] text-[#cecece] md:text-[#f5f5f5] xl:mb-[40px] xl:text-[15px]">
           {t(token.title.description)}
         </p>
+        <img
+          src={data?.avatar}
+          alt={data?.name}
+          width={300}
+          height={200}
+          className="right-[10%] top-[33%] mx-[auto] mb-[15px] h-[200px] w-[180px] rounded-[20px] object-cover object-center xl:absolute xl:mb-[0] xl:h-[300px] xl:w-[280px]"
+        />
         <div className="relative">
           <div className={`${stileWrapper} max-w-[500px]`}>
             <h3 className={styleTitle}>Front-end</h3>
@@ -52,14 +59,7 @@ export const AboutMe = () => {
               ))}
             </ul>
           </div>
-          <img
-            src={data?.avatar}
-            alt={data?.name}
-            width={300}
-            height={200}
-            className="absolute right-[10%] top-[0] h-[300px] w-[280px] rounded-[20px] object-cover object-center"
-          />
-          <div className="ml-[90px] mt-[40px] flex items-center gap-[20px]">
+          <div className="mt-[40px] flex items-center gap-[20px] xl:ml-[90px]">
             <p className="w-[280px] text-[13px] text-[#c7c7c7]">
               {t(token.title.checkProjects)}
             </p>

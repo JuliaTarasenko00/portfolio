@@ -14,13 +14,15 @@ export default function Layout() {
       {!isLoading && (
         <>
           <header className="container flex justify-between py-[25px]">
-            <h2 className="text-[25px] text-[#fff] underline">{data?.name}</h2>
+            <h2 className="text-[15px] text-[#fff] underline lg:text-[25px]">
+              {data?.name}
+            </h2>
             <ul>
               {language.map((el: string) => (
                 <li
                   onClick={() => setCurrentLanguage(el)}
                   key={el}
-                  className={`${el === currentLanguage ? 'cursor-no-drop italic text-[grey]' : 'cursor-pointer text-[#fff]'} text-[18px] capitalize`}
+                  className={`${el === currentLanguage ? 'cursor-no-drop italic text-[grey]' : 'cursor-pointer text-[#fff]'} text-[12px] capitalize lg:text-[18px]`}
                 >
                   {el === currentLanguage ? (
                     <>

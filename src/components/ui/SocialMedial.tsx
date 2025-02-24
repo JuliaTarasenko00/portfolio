@@ -38,9 +38,10 @@ const item = {
 };
 
 const styleLink =
-  'flex gap-[5px] italic items-center max-w-max  rounded-[30px] border-[1px] text-[#c5c5c5] text-[14px] border-[#7a7a7a] px-[20px] py-[10px]';
+  'flex gap-[5px] italic items-center max-w-max  rounded-[30px] border-[1px] text-[#c5c5c5] text-[12px] md:text-[14px] border-[#7a7a7a] px-[10px] py-[5px] md:px-[15px] md:py-[10px] xl:px-[20px] xl:py-[10px]';
 
-const styleSpan = 'h-[25px] w-[25px] text-[#fff]';
+const styleSpan =
+  'xl:h-[25px] xl:w-[25px] md:w-[20px] md:h-[20px] h-[15px] w-[15px] text-[#fff]';
 
 export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
   const options: TOptions[] = [
@@ -53,7 +54,7 @@ export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
 
   return (
     <motion.ul
-      className={`${container} mx-auto mt-[34px] flex w-[700px] items-center justify-center gap-[15px]`}
+      className={`${container} mx-auto mt-[34px] flex flex-wrap items-start justify-start gap-[8px] md:w-[590px] md:items-center md:justify-center xl:w-[700px] xl:gap-[15px]`}
       variants={container}
       initial="hidden"
       animate="visible"
@@ -61,7 +62,7 @@ export const SocialMedial: FC<ISocialMedial> = ({ data }) => {
       {options.map(({ name, href, icon }: TOptions) => (
         <motion.li
           key={name}
-          className={`${item} ${name === 'GitHub' ? 'flex-[1] place-items-center' : ''} `}
+          className={`item ${name === 'GitHub' ? 'md:flex-[1] md:place-items-center' : ''} `}
           variants={item}
         >
           {name !== 'Email' ? (
