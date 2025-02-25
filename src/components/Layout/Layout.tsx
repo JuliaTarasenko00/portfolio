@@ -38,7 +38,7 @@ export default function Layout() {
           <main>
             <CustomOutlet />
           </main>
-          <footer>
+          <footer className="">
             <Footer />
           </footer>
         </>

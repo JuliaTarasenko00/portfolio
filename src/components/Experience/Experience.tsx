@@ -49,9 +49,9 @@ export const Experience = () => {
   };
 
   return (
-    <section className="pt-[50px]" id={siteRoute.work}>
+    <section className="pt-[20px] xl:pt-[50px]" id={siteRoute.work}>
       <div className="container relative">
-        <h2 className="text-end text-[70px] font-bold italic text-[#fff]">
+        <h2 className="text-end text-[35px] font-bold italic text-[#fff] md:text-[50px] lg:text-[60px] xl:text-[70px]">
           {'<'}
           {t(token.title.experience)}
           {'/>'}
@@ -69,13 +69,13 @@ export const Experience = () => {
                   whileHover={{ scale: [null, 1, 1.1] }}
                   transition={{ duration: 0.3 }}
                   key={_id}
-                  className="grid grid-cols-3 items-center border-b border-t border-[#4b4a4a] px-[30px] py-[10px]"
+                  className="grid grid-cols-2 grid-rows-2 place-items-center items-center border-b border-t border-[#4b4a4a] px-[30px] py-[10px] md:grid-cols-3 md:grid-rows-none md:place-items-start"
                 >
                   <div>
-                    <p className="mb-[4px] text-[20px] leading-[1] tracking-[0.01em] text-[#c7c7c7]">
+                    <p className="mb-[4px] text-[12px] leading-[1] tracking-[0.01em] text-[#c7c7c7] lg:text-[20px]">
                       {start_work} - {end_work}
                     </p>
-                    <div className="flex items-center gap-[8px] text-[13px] italic text-[grey]">
+                    <div className="flex items-center gap-[8px] text-[10px] italic text-[grey] lg:text-[13px]">
                       {years > 0 && (
                         <IntlProvider
                           locale={currentLanguage}
@@ -106,8 +106,10 @@ export const Experience = () => {
                       )}
                     </div>
                   </div>
-                  <p className="text-[20px] text-[#fff]">{name_organization}</p>
-                  <p className="text-[25px] leading-[1] tracking-[0.04em] text-[#fff]">
+                  <p className="text-[14px] text-[#f5f5f5] md:justify-self-start lg:text-[20px]">
+                    {name_organization}
+                  </p>
+                  <p className="col-span-2 place-self-center text-center text-[15px] leading-[1] tracking-[0.04em] text-[#f5f5f5] md:col-span-1 md:justify-self-start md:text-start lg:text-[25px]">
                     {position}
                   </p>
                 </motion.li>
