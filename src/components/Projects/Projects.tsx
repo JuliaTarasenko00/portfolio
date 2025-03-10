@@ -119,11 +119,11 @@ export const Projects = () => {
                         <h3 className="max-w-max border-b-[1px] pb-[1px] text-[14px] font-medium lg:text-[23px]">
                           {nameProject}
                         </h3>
-                        <ul className="my-[10px] flex w-[100%] flex-wrap items-center gap-[5px] md:my-[20px] lg:max-w-[500px] lg:gap-[15px]">
+                        <ul className="my-[15px] flex w-[100%] flex-wrap items-center gap-[5px] md:my-[20px] lg:max-w-[500px] lg:gap-[15px]">
                           {technologyMarkup}
                         </ul>
                         <div className="relative">
-                          <p className="text-[9px] leading-[15px] text-[#d4d4d4] md:text-[13px] xl:text-[18px] xl:leading-[20px]">
+                          <p className="text-[11px] leading-[15px] text-[#d4d4d4] md:text-[13px] xl:text-[18px] xl:leading-[20px]">
                             {description}
                           </p>
                           {!!linkGit && (
@@ -138,7 +138,7 @@ export const Projects = () => {
                               }}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="absolute right-[35px] top-[-25%] my-[4px] w-max rounded-[50px] border-[1px] border-[#fff] p-[5px] md:top-[-50%] md:my-[0] lg:right-[55px] lg:top-[-55%] lg:p-[10px]"
+                              className="absolute right-[35px] top-[-21.5%] my-[4px] w-max rounded-[50px] border-[1px] border-[#fff] p-[5px] md:top-[-50%] md:my-[0] lg:right-[55px] lg:top-[-55%] lg:p-[10px]"
                             >
                               <span className="block h-[15px] w-[15px] text-[#fff] lg:h-[20px] lg:w-[20px]">
                                 <TbBrandGithubFilled />

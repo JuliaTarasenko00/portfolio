@@ -33,16 +33,16 @@ export const Footer = () => {
 
   return (
     <div className="container py-[30px]">
-      <h2 className="mb-[50px] text-[25px] font-bold text-[#fff]">
+      <h2 className="mb-[20px] text-[15px] font-bold text-[#f5f5f5] md:text-[25px] xl:mb-[50px]">
         ../{t(token.title.contacts)}...
       </h2>
-      <div className="flex items-start justify-between">
+      <div className="block items-start justify-between md:flex">
         <div className="relative">
-          <h3 className="w-[400px] text-7xl font-bold tracking-tight text-[#f5f5f5]">
-            <span className="block text-center">{nameArr[0]}</span>
-            <span className="block text-end">{nameArr[1]}</span>
+          <h3 className="text-lg font-bold tracking-tight text-[#f5f5f5] md:w-[300px] md:text-[35px] lg:w-[400px] lg:text-7xl">
+            <span className="md:block md:text-center">{nameArr[0]} </span>
+            <span className="md:block md:text-end">{nameArr[1]}</span>
           </h3>
-          <p className="absolute bottom-[0] left-[40px] max-w-[180px] text-lg italic text-[#a6a6a6]">
+          <p className="text-lg italic text-[#f5f5f5] md:absolute md:bottom-[-35px] md:left-0 md:max-w-[180px] md:text-[#a6a6a6] lg:bottom-[0] lg:left-[40px]">
             {data?.position}
           </p>
         </div>
@@ -60,7 +60,7 @@ export const Footer = () => {
               </motion.li>
             ))}
           </ul>
-          <div className="rounded-[25px] border-[0.75px] border-[#ffffff71] p-[15px]">
+          <div className="max-w-[300px] place-self-center rounded-[25px] border-[0.75px] border-[#ffffff71] p-[15px]">
             <p className="text-[20px] font-thin text-[#f5f5f5d6]">
               {' '}
               {t(token.site.title)}
@@ -68,7 +68,7 @@ export const Footer = () => {
             <p className="text-[12px] text-[#f5f5f5]">
               {t(token.site.handcrafted)} /
             </p>
-            <p className="text-[12px] text-[#f5f5f5]">
+            <p className="text-balance text-[12px] text-[#f5f5f5]">
               {t(token.site.powered)}
             </p>
           </div>
