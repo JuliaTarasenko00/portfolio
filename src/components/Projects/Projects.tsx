@@ -119,7 +119,7 @@ export const Projects = () => {
                         <h3 className="max-w-max border-b-[1px] pb-[1px] text-[14px] font-medium lg:text-[23px]">
                           {nameProject}
                         </h3>
-                        <div className="grid grid-cols-[2fr_0.5fr] items-start">
+                        <div className="grid grid-cols-[2fr_0.3fr] items-start">
                           <ul className="my-[15px] flex w-[100%] flex-wrap items-center gap-[5px] md:my-[20px] lg:max-w-[500px] lg:gap-[15px]">
                             {technologyMarkup}
                           </ul>

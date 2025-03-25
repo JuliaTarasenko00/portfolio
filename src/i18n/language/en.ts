@@ -7,14 +7,14 @@ export const en = {
   //*-----------TITLE
   [token.title.main]: 'Main',
   [token.title.goal]:
-    'My goal is to create intuitive, visually appealing and effective user interfaces, write clean and understandable code. I strive to create code that is easy to read, maintain and extend.',
+    'My goal is to design intuitive, visually compelling, and effective user interfaces while writing clean, readable, and scalable code. I strive to build solutions that are not only easy to use but also simple to maintain and extend.',
   [token.title.about]: 'About me',
   [token.title.education]: 'Education',
   [token.title.experience]: 'Work',
   [token.title.projects]: 'Projects',
   [token.title.contacts]: 'Contacts',
   [token.title.description]:
-    'My name is Yuliia Shtym, and I am a front-end developer with a passion for creating stylish, functional and intuitive web applications.',
+    'My name is Yuliia Shtym, and I am front-end developer passionate about crafting stylish, functional, and user-friendly web applications.',
   [token.title.checkProjects]:
     'Check out my projects to see how I can help you create an impressive product.',
 
